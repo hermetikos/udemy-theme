@@ -51,52 +51,17 @@
               the_post()
                 this echos the current post in the loop
               */
+              // get_template_part('partials/post/content-excerpt');
+              get_template_part('partials/post/content', 'excerpt');
+              /*
+              first one will try to load only content-excerpt.php
+              second will try to load content-excerpt and fallback to content
+              if it can't
+              */
 
-              ?>
-              <div class="entry clearfix">
-                <div class="entry-title">
-                  <h2>
-                    <a href="single.html">
-                      This is a Standard post with a Preview Image
-                    </a>
-                  </h2>
-                </div>
-                <ul class="entry-meta clearfix">
-                  <li><i class="icon-calendar3"></i> 10th February 2014</li>
-                  <li>
-                    <a href="#">
-                      <i class="icon-user"></i>
-                      admin
-                    </a>
-                  </li>
-                  <li>
-                    <i class="icon-folder-open"></i>
-                    <a href="#">General</a>, <a href="#">Media</a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="icon-comments"></i>
-                      13 Comments
-                    </a>
-                  </li>
-                </ul>
-                <div class="entry-content">
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
-                    asperiores quod est tenetur in. Eligendi, deserunt, blanditiis est
-                    quisquam doloribus voluptate id aperiam ea ipsum magni aut perspiciatis
-                    rem voluptatibus officia eos rerum deleniti quae nihil facilis repellat
-                    atque vitae voluptatem libero at eveniet veritatis ab facere.
-                  </p>
-                  <a href="#" class="more-link">Read More</a>
-                </div>
-              </div>
-              <?php
             }
           }
-          ?>
-
-          
+          ?>          
         </div>
         
         <!-- #posts end -->
