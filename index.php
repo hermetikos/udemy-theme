@@ -69,12 +69,19 @@
         ============================================= -->
         <div class="row mb-3">
           <div class="col-12">
-            <a href="#" class="btn btn-outline-secondary float-left">
+            <?php
+              next_post_link('&larr; Older');
+              previous_post_link('Newer &rarr;');
+              // these display pagination buttons
+              // the string is for the text to display on the link
+              // filters are better for this
+            ?>
+            <!-- <a href="#" class="btn btn-outline-secondary float-left">
               &larr; Older
             </a>
             <a href="#" class="btn btn-outline-dark float-right">
               Newer &rarr;
-            </a>
+            </a> -->
           </div>
         </div>
         <!-- .pager end -->
