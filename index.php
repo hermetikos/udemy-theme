@@ -58,7 +58,6 @@
               second will try to load content-excerpt and fallback to content
               if it can't
               */
-
             }
           }
           ?>          
