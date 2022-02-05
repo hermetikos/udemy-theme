@@ -11,8 +11,7 @@
         <div class="container clearfix">
           <span class="badge badge-danger bnews-title">Breaking News:</span>
 
-          <div class="fslider bnews-slider nobottommargin" data-speed="800" data-pause="6000" data-arrows="false"
-            data-pagi="false">
+          <div class="fslider bnews-slider nobottommargin" data-speed="800" data-pause="6000" data-arrows="false" data-pagi="false">
             <div class="flexslider">
               <div class="slider-wrap">
                 <div class="slide"><a href="#"><strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -39,8 +38,8 @@
         <div id="posts">
           <?php
 
-          if( have_posts()) {
-            while( have_posts()) {
+          if (have_posts()) {
+            while (have_posts()) {
               the_post();
               /*
               this is a basic version of "The Loop"
@@ -60,9 +59,9 @@
               */
             }
           }
-          ?>          
+          ?>
         </div>
-        
+
         <!-- #posts end -->
 
         <!-- Pagination
@@ -70,11 +69,11 @@
         <div class="row mb-3">
           <div class="col-12">
             <?php
-              next_post_link('&larr; Older');
-              previous_post_link('Newer &rarr;');
-              // these display pagination buttons
-              // the string is for the text to display on the link
-              // filters are better for this
+            next_post_link('&larr; Older');
+            previous_post_link('Newer &rarr;');
+            // these display pagination buttons
+            // the string is for the text to display on the link
+            // filters are better for this
             ?>
             <!-- <a href="#" class="btn btn-outline-secondary float-left">
               &larr; Older
