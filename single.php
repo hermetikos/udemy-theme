@@ -75,7 +75,15 @@
                             ============================================= -->
                             <div class="entry-content notopmargin">
                                 
-                                <?php the_content(); ?>
+                                <?php the_content();
+                                    $defaults = array(
+                                        'before'           => '<p class="text-center">' . __( 'Pages:' ),
+                                        'after'            => '</p>'
+                                    );
+
+                                    wp_link_pages($defaults);
+                                    // use link pages to enable post pagination
+                                ?>
 
                                 
                                 <!-- Post Single - Content End -->
@@ -94,13 +102,13 @@
                         <!-- Post Navigation
                         ============================================= -->
                         <div class="post-navigation clearfix">
-
+                            
                             <div class="col_half nobottommargin">
-                                <a href="#">&lArr; This is a Standard post with a Slider Gallery</a>
+                                <?php previous_post_link(); ?>
                             </div>
 
                             <div class="col_half col_last tright nobottommargin">
-                                <a href="#">This is an Embedded Audio Post &rArr;</a>
+                                <?php next_post_link(); ?>
                             </div>
 
                         </div><!-- .post-navigation end -->
@@ -372,3 +380,20 @@
 </section><!-- #content end -->
 
 <?php get_footer(); ?>
+
+<!-- 
+    global $post;
+        a variable defined by WP that includes info about the current post
+        here we use it to get info about the author
+    
+    the_tags()
+        arg 1
+            text to display before the tags
+            we keep this empty
+        arg 2
+            the separater
+    
+    next_post_link
+    previous_post_link
+        get links to the next and previous posts
+ -->
