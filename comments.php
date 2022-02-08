@@ -89,3 +89,48 @@ if( post_password_required() ) {
     </div><!-- #respond end -->
 
 </div>
+<!-- 
+    if( post_password_required() ) {
+        return;
+    }
+        post_password_required() checks if we need a password to see this page
+        we use this to avoid displaying the page if you need to be logged in for security
+        we use return to do this
+        this is because of the way PHP include works, which will stop the template render early
+    
+
+    comment_form()
+        generates a form to allow commenters to post comments    
+        because of the way the comment form can be extended with plugins,
+        it is best to use this rather than create it manually
+        arg1
+            comment field
+            define the text field where you write your comment
+        arg 2
+            fields key
+            define the other input fields for the comment form
+            like poster name, email, etc.
+        the other fields are intuitive
+    
+    $comments
+        note that WP puts all post comments in this iterable variable
+    
+    get_avatar()
+        get the avatar of a comment poster
+    
+    comment_author()
+    comment_date()
+        specify the author and date of the current comment
+    comment_text()
+        get the comment body
+    
+    comment_pagination()
+        this will display pagination info for comments if relevant
+    
+    have_comments()
+        bool that returns true if the current query has comments to iterate over
+    
+    comments_number()
+        return the number of comments
+        
+ -->

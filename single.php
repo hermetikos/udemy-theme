@@ -192,6 +192,9 @@
                         ============================================= -->
                         <?php
                             if( comments_open() || get_comments_number()) {
+                                // comments_open() returns true if the post is open for comments
+                                // however, we always want to display comments if there are some, even if the page
+                                // has been closed to new comments
                                 comments_template();
                             }
                         ?>
