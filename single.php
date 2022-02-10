@@ -146,48 +146,53 @@
                         <h4>Related Posts:</h4>
 
                         <div class="related-posts clearfix">
+                            <?php
+                                $categories = get_the_category();
+                                $rp_query = new WP_Query([
+                                    'posts_per_page' => 2,
+                                    'post__not_in' => [ $post->ID],
+                                    'cat' => !empty($categories) ? $categories[0]->term_id : null
+                                ]);
 
-                            <div class="mpost clearfix">
-                                <div class="entry-image">
-                                    <a href="#">
-                                        <img src="images/blog/small/10.jpg">
-                                    </a>
-                                </div>
-                                <div class="entry-c">
-                                    <div class="entry-title">
-                                        <h4>
-                                            <a href="#">
-                                                This is an Image Post
-                                            </a>
-                                        </h4>
-                                    </div>
-                                    <ul class="entry-meta clearfix">
-                                        <li><i class="icon-calendar3"></i> 10th July 2014</li>
-                                        <li><i class="icon-comments"></i> 12</li>
-                                    </ul>
-                                    <div class="entry-content">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing
-                                        elit. Mollitia nisi perferendis.
-                                    </div>
-                                </div>
-                            </div>
+                                if( $rp_query->have_posts() ) {
+                                    while( $rp_query->have_posts() ) {
+                                        $rp_query->the_post();
+                                        ?>
+                                        <div class="mpost clearfix">
+                                            <?php 
+                                                if(has_post_thumbnail()) {
+                                                    ?>
+                                                    <div class="entry-image">
+                                                        <a href="<?php the_permalink(); ?>">
+                                                            <?php the_post_thumbnail('thumbnail'); ?>
+                                                        </a>
+                                                    </div>
+                                                    <?php
+                                                }
+                                            ?>
+                                            <div class="entry-c">
+                                                <div class="entry-title">
+                                                    <h4>
+                                                        <a href="<?php the_permalink(); ?>">
+                                                            <?php the_title(); ?>
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <ul class="entry-meta clearfix">
+                                                    <li><i class="icon-calendar3"></i> <?php echo get_the_date(); ?></li>
+                                                    <li><i class="icon-comments"></i> <?php comments_number( '0' ); ?></li>
+                                                </ul>
+                                                <div class="entry-content">
+                                                    <?php the_excerpt() ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <?php
+                                    }
 
-                            <div class="mpost clearfix">
-                                <div class="entry-image">
-                                    <a href="#"><img src="images/blog/small/20.jpg" alt="Blog Single"></a>
-                                </div>
-                                <div class="entry-c">
-                                    <div class="entry-title">
-                                        <h4><a href="#">This is a Video Post</a></h4>
-                                    </div>
-                                    <ul class="entry-meta clearfix">
-                                        <li><i class="icon-calendar3"></i> 24th July 2014</li>
-                                        <li><i class="icon-comments"></i> 16</li>
-                                    </ul>
-                                    <div class="entry-content">Lorem ipsum dolor sit amet, consectetur adipisicing
-                                        elit. Mollitia nisi perferendis.</div>
-                                </div>
-                            </div>
+                                    wp_reset_postdata();
+                                }
+                            ?>                           
 
                         </div>
 
@@ -247,4 +252,52 @@
         converts newlines to breaks
     get_avatar
         self explanatory
+
+    WP_query
+        a class used to run custom post queries
+        uses
+            add a list of related posts
+            create two loops (ex an FAQ with content beneath)
+            custom posts list somewhere on your site
+            create a custom query with more than one taxonomy
+        it can be resource heavy
+            like if you're using 4-5 queries
+        it may be better to use a template
+        you can also modify the main query with pre_get_posts()
+
+        $categories = get_the_category();
+        $rp_query = new WP_Query([
+            'posts_per_page' => 2,
+            'post__not_in' => [ $post->ID],
+            'cat' => !empty($categories) ? $categories[0]->term_id : null
+        ]);
+           posts_per_page
+            how many posts to return
+            posts__not_in
+                exclude certain pages (here you exclude the current page)
+            cat
+                use certain categories
+                we first get the current category for the page
+                we use a ternary operator to check if theres any categories (we only check the first)
+                and output results accordingly
+
+        if( $rp_query->have_posts() ) {
+            while( $rp_query->have_posts() ) {
+                $rp_query->the_post();
+            
+            this loads a new loop using your custom query
+            from this point on, you can use regular queries like the_post()
+            WP knows to read from the custom query after this
+        
+        wp_reset_post_data()
+            use this to restore the context of template tags after running a secondary loop w/ wp_query
+            you must end your secondary loop with this to avoid issues
+        
+        main loop
+            generated using the page URL
+            done automatically by WP
+            every page has one
+        secondary loop
+            created manually w/ WP_query
+            can query any of multiple types of posts 
  -->
