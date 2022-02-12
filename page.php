@@ -2,37 +2,27 @@
 
 get_header();
 
-while( have_posts() )
-{
-    the_post();
-    
-    ?>
+?>
 
-    <!-- Page Title
-    ============================================= -->
-    <section id="page-title">
-        <div class="container clearfix">
-            <h1><?php the_title(); ?></h1>
-            <span>
-                <?php
+<!-- Page Title
+============================================= -->
+<section id="page-title">
+    <div class="container clearfix">
+        <h1><?php single_post_title(); ?></h1>
+        <span>
+            <?php
+                if( is_plugin_active('plugins/wp-subtitle.php') {
                     do_action( 'plugins/wp_subtitle/the_subtitle', array(
                         'before'        => '<p class="subtitle">',
                         'after'         => '</p>',
                         'post_id'       => get_the_ID(),
                         'default_value' => ''
                     ));
-                ?>
-            </span>
-        </div>
-    </section><!-- #page-title end -->
-    
-    <?php
-}
-
-rewind_posts();
-?>
-
-
+                }
+            ?>
+        </span>
+    </div>
+</section><!-- #page-title end -->
 
 <!-- Content
 ============================================= -->
