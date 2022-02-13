@@ -11,7 +11,8 @@ get_header();
         <h1><?php single_post_title(); ?></h1>
         <span>
             <?php
-                if( is_plugin_active('plugins/wp-subtitle.php') {
+                // check to make sure this subtitle plugin is active
+                if( has_action('plugins/wp_subtitle/the_subtitle')) {
                     do_action( 'plugins/wp_subtitle/the_subtitle', array(
                         'before'        => '<p class="subtitle">',
                         'after'         => '</p>',
@@ -39,14 +40,7 @@ get_header();
 
                 while (have_posts()) {
                     the_post();
-
-                    global $post;
-                    // this is a built in WP variable that contains post info
-                    // like the author and the author URL, which we'll use repeatedly in this template
-                    $author_ID = $post->post_author;
-                    $author_URL = get_author_posts_url( $author_ID );
-
-
+                    
                     ?>
 
                     <div class="single-post nobottommargin">
@@ -132,3 +126,14 @@ get_header();
 </section><!-- #content end -->
 
 <?php get_footer(); ?>
+
+<?php
+/*
+NOTE: unlike single.php, this template doesn't require you to manually check if it has posts
+if a page does not exist, WP will load the 404 template
+
+rewind_posts()
+    clears the loop
+
+*/
+?>
