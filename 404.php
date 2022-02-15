@@ -41,5 +41,8 @@
 <?php get_footer(); ?>
 
 <?php
-
+/*
+get_search_form()
+    retrive the search form template
+*/
 ?>
