@@ -97,6 +97,8 @@
 <?php get_footer(); ?>
 
 <!-- 
-    get_search_form
-    the_search_query
+    get_search_form()
+        get your search form from the search.php template
+    the_search_query()
+        prints the search query used when searching
  -->

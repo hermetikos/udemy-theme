@@ -125,11 +125,13 @@ get_header();
 
 <?php
 /*
-NOTE: unlike single.php, this template doesn't require you to manually check if it has posts
-if a page does not exist, WP will load the 404 template
-
-rewind_posts()
-    clears the loop
-
+Note the heading at the top of the page
+it tells WP this is a template
+this isn't a default template the WP knows how to use, so you must provide
+this extra info
+once you specify it as a template, it will be available as a template in
+the appropriate post types
+by default, WP only makes tempaltes available to pages only but you can
+modify the header to extend it to other post types
 */
 ?>
