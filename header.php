@@ -11,10 +11,6 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Document Title
-	============================================= -->
-  <title>Index Template</title>
-
 </head>
 
 <body <?php body_class('stretched no-transition') ?>>
@@ -33,11 +29,16 @@
           <!-- Top Links
           ============================================= -->
           <div class="top-links">
-            <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">FAQs</a></li>
-              <li><a href="#">Contact</a></li>
-            </ul>
+            <?php
+            if (has_nav_menu('secondary')) {
+              wp_nav_menu([
+                'theme_location' => 'secondary',
+                'container' => false,
+                'fallback_cb' => false,
+                'depth' => 1,
+              ]);
+            }
+            ?>
           </div><!-- .top-links end -->
 
         </div>
@@ -91,7 +92,15 @@
         <!-- Logo
         ============================================= -->
         <div id="logo">
-          <a href="#" class="standard-logo">Udemy</a>
+          <?php
+          if (has_custom_logo()) {
+            the_custom_logo();
+          } else {
+          ?>
+            <a href="<?php echo home_url('/') ?>" class="standard-logo"><?php bloginfo('name'); ?></a>
+          <?
+          }
+          ?>
         </div><!-- #logo end -->
 
         <div class="top-advert">
@@ -113,7 +122,7 @@
             <!-- ul Main Menu
             ======================================== -->
             <?php
-            if( has_nav_menu( 'primary' ) ) {
+            if (has_nav_menu('primary')) {
               wp_nav_menu([
                 'theme_location' => 'primary',
                 'container' => false,
@@ -182,3 +191,17 @@
       </div>
 
     </header><!-- #header end -->
+
+    <!-- 
+      wp_title()
+            a depracated function for displaying title
+            it's better to add theme support
+            this is typically enabled through setup.php
+      has_custom_logo()
+          check if there is a custom logo
+      the_custom_logo();
+          template tag for a logo
+      bloginfo()
+          this can retrieve a variety of data about your blog
+          here we use it to retrieve the blog name
+     -->
