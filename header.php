@@ -57,16 +57,20 @@
                     <span class="ts-icon"><i class="icon-facebook"></i></span><span class="ts-text">Facebook</span>
                   </a>
                 </li>
-                <?
+                <?php
               }
 
+              if( get_theme_mod( 'ju_twitter_handle') ) {
+                ?>
+                <li>
+                  <a href="https://twitter.com/<?php echo get_theme_mod( 'ju_twitter_handle' ); ?>" class="si-twitter">
+                    <span class="ts-icon"><i class="icon-twitter"></i></span><span class="ts-text">Twitter</span>
+                  </a>
+                </li>
+                <?php
+              }
               ?>
               
-              <li>
-                <a href="#" class="si-twitter">
-                  <span class="ts-icon"><i class="icon-twitter"></i></span><span class="ts-text">Twitter</span>
-                </a>
-              </li>
               <li>
                 <a href="#" class="si-instagram">
                   <span class="ts-icon"><i class="icon-instagram2"></i></span><span class="ts-text">Instagram</span>
