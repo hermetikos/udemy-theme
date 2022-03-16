@@ -65,5 +65,24 @@ function ju_social_customizer_section( $wp_customize ) {
             )
         )
     );
+
+    // add phone
+    $wp_customize->add_setting( 'ju_phone_handle',
+        [
+            'default' => ''
+        ]
+    );
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'ju_social_phone_input',
+            array(
+                'label' => __('Phone Number', 'udemy'),
+                'section' => 'ju_social_section',
+                'settings' => 'ju_phone_handle',
+                'type' => 'text'
+            )
+        )
+    );
 }
 ?>

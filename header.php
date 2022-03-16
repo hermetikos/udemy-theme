@@ -79,12 +79,17 @@
                 </li>
                 <?php
               }
+
+              if( get_theme_mod( 'ju_phone_handle') ) {
+                ?>
+                <li>
+                  <a href="tel:<?php echo get_theme_mod( 'ju_phone_handle' ); ?>" class="si-phone">
+                    <span class="ts-icon"><i class="icon-phone"></i></span><span class="ts-text">Phone</span>
+                  </a>
+                </li>
+                <?php
+              }
               ?>
-              <li>
-                <a href="tel:+55.55.5555555" class="si-call">
-                  <span class="ts-icon"><i class="icon-call"></i></span><span class="ts-text">+55.55.5555555</span>
-                </a>
-              </li>
               <li>
                 <a href="mailto:info@email.com" class="si-email3">
                   <span class="ts-icon"><i class="icon-email3"></i></span><span class="ts-text">info@email.com</span>
