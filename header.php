@@ -89,12 +89,17 @@
                 </li>
                 <?php
               }
+
+              if( get_theme_mod( 'ju_email_handle') ) {
+                ?>
+                <li>
+                  <a href="mailto:<?php echo get_theme_mod( 'ju_email_handle' ); ?>" class="si-email">
+                    <span class="ts-icon"><i class="icon-email3"></i></span><span class="ts-text"><?php echo get_theme_mod( 'ju_email_handle' ); ?></span>
+                  </a>
+                </li>
+                <?php
+              }
               ?>
-              <li>
-                <a href="mailto:info@email.com" class="si-email3">
-                  <span class="ts-icon"><i class="icon-email3"></i></span><span class="ts-text">info@email.com</span>
-                </a>
-              </li>
             </ul>
           </div><!-- #top-social end -->
 

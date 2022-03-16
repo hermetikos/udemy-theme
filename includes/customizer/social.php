@@ -84,5 +84,24 @@ function ju_social_customizer_section( $wp_customize ) {
             )
         )
     );
+
+    // add email
+    $wp_customize->add_setting( 'ju_email_handle',
+        [
+            'default' => ''
+        ]
+    );
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'ju_social_email_input',
+            array(
+                'label' => __('Email', 'udemy'),
+                'section' => 'ju_social_section',
+                'settings' => 'ju_email_handle',
+                'type' => 'text'
+            )
+        )
+    );
 }
 ?>
