@@ -69,13 +69,17 @@
                 </li>
                 <?php
               }
+
+              if( get_theme_mod( 'ju_instagram_handle') ) {
+                ?>
+                <li>
+                  <a href="https://instagram.com/<?php echo get_theme_mod( 'ju_instagram_handle' ); ?>" class="si-instagram">
+                    <span class="ts-icon"><i class="icon-instagram"></i></span><span class="ts-text">Instagram</span>
+                  </a>
+                </li>
+                <?php
+              }
               ?>
-              
-              <li>
-                <a href="#" class="si-instagram">
-                  <span class="ts-icon"><i class="icon-instagram2"></i></span><span class="ts-text">Instagram</span>
-                </a>
-              </li>
               <li>
                 <a href="tel:+55.55.5555555" class="si-call">
                   <span class="ts-icon"><i class="icon-call"></i></span><span class="ts-text">+55.55.5555555</span>
