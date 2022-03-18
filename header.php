@@ -230,4 +230,7 @@
       bloginfo()
           this can retrieve a variety of data about your blog
           here we use it to retrieve the blog name
+
+      get_theme_mod()
+          can be used to query DB for customizer options
      -->
