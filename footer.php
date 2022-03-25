@@ -59,3 +59,10 @@
 </body>
 
 </html>
+
+<!-- 
+  php the_permalink(get_theme_mod('ju_footer_tos_page'))
+      here we use template tags to get the URL stored in the DB by customizer
+      many template tags will allow you to use an ID to get a specific piece of info
+      here we use get_theme_mod to get 
+ -->
