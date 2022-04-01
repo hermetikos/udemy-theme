@@ -23,7 +23,8 @@ function ju_misc_customizer_section($wp_customize) {
 
     $wp_customize->add_section( 'ju_misc_section', [
         'title' => __( 'Udemy Misc Settings', 'udemy'),
-        'priority' => 30
+        'priority' => 30,
+        'panel' => 'udemy'
     ]);
 
     $wp_customize->add_control(

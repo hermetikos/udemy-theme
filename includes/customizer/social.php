@@ -11,7 +11,8 @@ function ju_social_customizer_section( $wp_customize ) {
     $wp_customize->add_section( 'ju_social_section',
         [
             'title' => __('Udemy Social Settings', 'udemy'),
-            'priority' => 30
+            'priority' => 30,
+            'panel' => 'udemy'
         ]
     );
 
@@ -132,12 +133,15 @@ function ju_social_customizer_section( $wp_customize ) {
     $wp_customize->add_section( 'ju_social_section',
         [
             'title' => __('Udemy Social Settings', 'udemy'),
-            'priority' => 30
+            'priority' => 30,
+            'panel' => 'udemy
         ]
     );
         adds a section
         priority key is used to set the position of the section
         the lower the number, the higher up the section
+
+        panel allows you to group together sections
     
     $wp_customize->add_control(
         new WP_Customize_Control(
