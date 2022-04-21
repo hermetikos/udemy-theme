@@ -2,13 +2,19 @@
 
 function ju_misc_customizer_section($wp_customize) {
     $wp_customize->add_setting( 'ju_header_show_search', [
-        'default' => 'yes'
+        'default' => 'yes',
+        'transport' => 'postMessage'
     ]);
 
     $wp_customize->add_setting( 'ju_header_show_cart', [
-        'default' => 'yes'
+        'default' => 'yes',
+        'transport' => 'postMessage'
     ]);
-
+    // note the transport key
+    // the default is refresh, which refreshes the page when the value changes
+    // postMessage allows you to use JS to change the setting
+    // without a jarring refresh
+    
     $wp_customize->add_setting( 'ju_footer_copyright_text', [
         'default' => 'Copyright &copy; 2019 All Rights Reserved'
     ]);
@@ -107,4 +113,7 @@ function ju_misc_customizer_section($wp_customize) {
         a specific page
         it also helps prevent accidentally setting the value to something
         invalid
+        use 0 as a placeholder if you don't have a vaule in mind yet
+    'panel'
+        set a section's parent panel
  -->
