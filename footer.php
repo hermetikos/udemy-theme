@@ -9,7 +9,16 @@
         <div class="container clearfix">
 
           <div class="col_half">
-            <?php echo get_theme_mod('ju_footer_copyright_text'); ?><br>
+          <?php echo get_theme_mod('ju_footer_copyright_text'); ?><br>
+            <?php
+            
+            if( get_theme_mod( 'ju_report_file' )) {
+              ?>
+              <a href="<?php echo get_theme_mod( 'ju_report' ); ?>">Download Report</a>
+              <?php
+            }
+            
+            ?>
             <div class="copyright-links">
               <?php
                 if( get_theme_mod( 'ju_footer_tos_page')) {
@@ -58,11 +67,9 @@
   <?php wp_footer() ?>
 </body>
 
-</html>
-
-<!-- 
-  php the_permalink(get_theme_mod('ju_footer_tos_page'))
+<!-- php the_permalink(get_theme_mod('ju_footer_tos_page'))
       here we use template tags to get the URL stored in the DB by customizer
       many template tags will allow you to use an ID to get a specific piece of info
-      here we use get_theme_mod to get 
- -->
+      here we use get_theme_mod to get  -->
+
+</html>
