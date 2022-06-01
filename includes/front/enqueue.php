@@ -27,6 +27,12 @@ function ju_enqueue() {
     wp_enqueue_style('ju_responsive');
     wp_enqueue_style('ju_custom');
 
+    $read_more_color = get_theme_mod( 'ju_read_more_color');
+    wp_add_inline_style(
+        'ju_custom',
+        'a.more-link{ color: ' . $read_more_color . '; border-color: ' . $read_more_color . ';}'
+    );
+
     # SCRIPTS
     wp_register_script('ju_plugins', $uri . '/assets/js/plugins.js', [], $ver, true);
     wp_register_script('ju_functions', $uri . '/assets/js/functions.js', [], $ver, true);
